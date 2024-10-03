@@ -141,6 +141,33 @@ You can now run the recommendation system by querying either the Elasticsearch-b
     python subreddit_fetch.py
     ```
 
+# Reddit Recommendation System
+
+This project demonstrates three functionalities:
+
+1. **Elasticsearch Retrieval**: Showcase how we retrieve subreddits using Elasticsearch for text-based queries.
+2. **FAISS Vector Database Retrieval**: Showcase how we retrieve subreddits based on semantic similarity using FAISS vector search.
+3. **LLM with RAG (Retrieval-Augmented Generation)**: Using a combination of FAISS and Elasticsearch for RAG to generate responses.
+
+## Elasticsearch Retrieval
+
+The following image shows the retrieval of subreddits based on a query using Elasticsearch:
+
+![Elasticsearch Retrieval](images/Elastic_Search_Example.jpg)
+
+## FAISS Vector Database Retrieval
+
+This screenshot demonstrates retrieving subreddits using FAISS for semantic similarity:
+
+![FAISS Vector Search](images/FAISS_Seach.jpg)
+
+## LLM with RAG (Using VectorDB and Elasticsearch)
+
+This image demonstrates how the system combines FAISS and Elasticsearch using a Language Model for Retrieval-Augmented Generation (RAG):
+
+![LLM RAG Example](images/rag.png)
+
+
 - **For hybrid search (FAISS + Elasticsearch)**:
 
     Modify and execute the `subreddit_fetch.py` script to include hybrid searches.
