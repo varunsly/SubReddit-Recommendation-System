@@ -165,7 +165,7 @@ This screenshot demonstrates retrieving subreddits using FAISS for semantic simi
 
 This image demonstrates how the system combines FAISS and Elasticsearch using a Language Model for Retrieval-Augmented Generation (RAG):
 
-![LLM RAG Example](images/rag.png)
+![LLM RAG Example](images/rag.jpg)
 
 
 - **For hybrid search (FAISS + Elasticsearch)**:
