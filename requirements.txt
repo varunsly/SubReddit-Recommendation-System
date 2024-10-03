@@ -1,0 +1,11 @@
+torch
+pandas
+numpy
+sentence-transformers
+tqdm
+faiss-gpu
+nltk
+requests
+beautifulsoup4
+elasticsearch
+langchain
