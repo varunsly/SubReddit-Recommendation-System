@@ -62,3 +62,85 @@ Make sure you have the following installed on your machine:
    ```bash
    git clone https://github.com/yourusername/reddit-recommendation-system.git
    cd reddit-recommendation-system
+2. Install the required dependencies:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. Set up your Reddit API credentials:
+
+    - Create a `.env` file in the project root directory with the following details:
+
+      ```bash
+      CLIENT_ID=your_reddit_client_id
+      CLIENT_SECRET=your_reddit_client_secret
+      USER_AGENT=your_reddit_user_agent
+      ```
+
+4. Set up Elasticsearch:
+
+    Install and configure Elasticsearch as needed for your environment. Update the Elasticsearch connection details in `elastic_search.py`.
+
+5. Install FAISS:
+
+    ```bash
+    pip install faiss-gpu  # For GPU support
+    ```
+
+6. Ensure you have the SentenceTransformer model downloaded:
+
+    ```bash
+    pip install sentence-transformers
+    ```
+
+## How to Run the Code
+
+Once the environment is set up, follow these steps to run the Reddit Recommendation System:
+
+### 1. Scrape Subreddit Data
+
+First, scrape the top Reddit communities and subreddit data:
+
+    ```bash
+    python subreddittopcommunitiesscrapping.py
+    python reddit_data_api_scrape.py
+    ```
+
+### 2. Clean and Preprocess the Data
+
+Clean and preprocess the scraped data:
+
+    ```bash
+    python data_cleaning.py
+    ```
+
+### 3. Populate Elasticsearch with Subreddit Data
+
+Store the cleaned subreddit data in Elasticsearch for text-based querying:
+
+    ```bash
+    python elastic_search.py
+    ```
+
+### 4. Build the FAISS Vector Index
+
+Build the FAISS index to perform vector similarity searches based on subreddit embeddings:
+
+    ```bash
+    python vectordb.py
+    ```
+
+### 5. Run the Recommendation System
+
+You can now run the recommendation system by querying either the Elasticsearch-based system for text relevance or FAISS for semantic similarity:
+
+- **For FAISS-based semantic recommendations**:
+
+    ```bash
+    python subreddit_fetch.py
+    ```
+
+- **For hybrid search (FAISS + Elasticsearch)**:
+
+    Modify and execute the `subreddit_fetch.py` script to include hybrid searches.
