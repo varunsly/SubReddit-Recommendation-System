@@ -20,9 +20,9 @@ from bs4 import BeautifulSoup
 
 # Initialize the Reddit instance
 reddit = asyncpraw.Reddit(# Initialize the Reddit instance
-    client_id='zzukpp3wgMBgZQD5vXHPEg',
-    client_secret='0fkYR_YUD26OF571VDmGlOneh6z8VQ',
-    user_agent='subreddit scraper by u/Rude_Ice_5534'
+    client_id='########',
+    client_secret='##############',
+    user_agent='#######'
 )
 
 # Function to fetch subreddit metadata

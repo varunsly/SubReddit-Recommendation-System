@@ -47,9 +47,9 @@ from datetime import datetime
 """
 
 reddit = asyncpraw.Reddit(
-    client_id='_ufw6qg2bqsqyGhMb4J-hw',
-    client_secret='KpLT3vXbmQHpEt6_yG09R7cutCXubg',
-    user_agent='clinical_trails scraper by u/Rude_Ice_5534'
+    client_id='#######',
+    client_secret='#######',
+    user_agent='###################'
 )
 
 nest_asyncio.apply()

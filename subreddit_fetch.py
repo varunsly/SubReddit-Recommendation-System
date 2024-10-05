@@ -16,7 +16,7 @@ from sentence_transformers import SentenceTransformer
 import pickle
 from langchain_groq import ChatGroq
 from google.colab import userdata
-
+from elastic_search import search_subreddits_elasticsearch
 # !pip install faiss-cpu sentence_transformers langchain groq
 
 # Load the SentenceTransformer for encoding user query
@@ -54,7 +54,7 @@ def print_retrieved_subreddits(retrieved_subreddits):
         print("-" * 50)  # Line separator between subreddits
 
 # Example usage
-user_query = "Porn"
+user_query = "Anime"
 retrieved_subreddits, distances = retrieve_similar_subreddits(user_query)
 
 # Print the subreddits in a formatted way
@@ -62,7 +62,7 @@ print_retrieved_subreddits(retrieved_subreddits)
 
 import os
 
-os.environ["GROQ_API_KEY"] = "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"
+os.environ["GROQ_API_KEY"] = "######################################"
 
 llm = ChatGroq(model_name="llama3-70b-8192", temperature=0)
 

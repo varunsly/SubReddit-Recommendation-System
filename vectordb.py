@@ -66,7 +66,7 @@ def load_subreddit_data(conn):
     except Exception as e:
         print(f"Error loading subreddit data: {e}")
         return None
-conn = connect_to_db('/umbc/rs/gokhale/users/vmagotr1/varun/data/Reddit Data/reddit_data_new.db')
+conn = connect_to_db('reddit_data_new.db')
 subreddits_df = load_subreddit_data(conn)
 
 # Execute the ALTER TABLE command to add the rich_text column
