@@ -62,6 +62,7 @@ Make sure you have the following installed on your machine:
    ```bash
    git clone https://github.com/yourusername/reddit-recommendation-system.git
    cd reddit-recommendation-system
+
 2. Install the required dependencies:
 
     ```bash
@@ -100,16 +101,22 @@ Once the environment is set up, follow these steps to run the Reddit Recommendat
 
 ### 1. Scrape Subreddit Data
 
-First, scrape the top Reddit communities and subreddit data:
+Firstly, I fetched the top subreddits from two websites:
+
+- https://www.reddit.com/r/ListOfSubreddits/wiki/listofsubreddits/
+- https://www.reddit.com/r/ListOfSubreddits/wiki/newtoreddit/
+
+This step is handled in the `subreddittopcommunitiesscrapping.py` script. It scrapes the top subreddits from these websites using BeautifulSoup.
+
+Next, use the following commands to scrape additional subreddit data from the Reddit API:
 
     ```bash
     python subreddittopcommunitiesscrapping.py
-    python reddit_data_api_scrape.py
+    python reddit_data_api_scrape.
     ```
-
 ### 2. Clean and Preprocess the Data
 
-Clean and preprocess the scraped data:
+Cleans and preprocesses the scraped Reddit data to remove irrelevant or incomplete information. This step ensures that only high-quality data is indexed in Elasticsearch and FAISS:
 
     ```bash
     python data_cleaning.py
@@ -117,7 +124,7 @@ Clean and preprocess the scraped data:
 
 ### 3. Populate Elasticsearch with Subreddit Data
 
-Store the cleaned subreddit data in Elasticsearch for text-based querying:
+Handles the interactions with Elasticsearch, creating the index and storing cleaned subreddit data for text-based searches. This allows the system to return recommendations based on keyword matches or other textual characteristics.
 
     ```bash
     python elastic_search.py
@@ -125,7 +132,7 @@ Store the cleaned subreddit data in Elasticsearch for text-based querying:
 
 ### 4. Build the FAISS Vector Index
 
-Build the FAISS index to perform vector similarity searches based on subreddit embeddings:
+The vectordb.py script generates subreddit embeddings using the SentenceTransformer models ('all-mpnet-base-v2' and 'all-MiniLM-L6-v2') to capture the semantic meaning of subreddit descriptions and top posts. These embeddings are indexed using FAISS for efficient similarity searches, enabling quick retrieval of semantically related subreddits. The script also saves the embeddings, FAISS index, and subreddit metadata for future use:
 
     ```bash
     python vectordb.py
@@ -133,9 +140,9 @@ Build the FAISS index to perform vector similarity searches based on subreddit e
 
 ### 5. Run the Recommendation System
 
-You can now run the recommendation system by querying either the Elasticsearch-based system for text relevance or FAISS for semantic similarity:
-
-- **For FAISS-based semantic recommendations**:
+    Handles the recommendation queries. Depending on the user query, it can either:
+    - Retrieve subreddits based on vector similarity using FAISS.
+    - Perform a hybrid search that combines both FAISS and Elasticsearch results for more accurate recommendations.:
 
     ```bash
     python subreddit_fetch.py
