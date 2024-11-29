@@ -2,7 +2,7 @@
 
 # Reddit Recommendation System
 
-This project is a Reddit-based recommendation system that scrapes subreddit data, processes it, and stores it in both Elasticsearch and a vector database (using FAISS) for querying. The system is designed to recommend subreddits or posts based on semantic similarity (using embeddings) and text-based relevance.
+This project is a LLM based Reddit recommendation system that scrapes subreddit data, processes it, and stores it in both Elasticsearch and a vector database (using FAISS) for querying. The system is designed to recommend subreddits or posts based on semantic similarity (using embeddings) and text-based relevance.
 
 ## Table of Contents
 
