@@ -1,4 +1,4 @@
-# SubReddit-Recommention-System
+# SubReddit-Recommendation-System
 
 # Reddit Recommendation System
 
